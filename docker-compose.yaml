@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  lang_detec:
+    image: test:latest
+    volumes:
+      - ./test_data/video.mp4:/app/test_data/video.mp4
+    command: -i /app/test_data/video.mp4 -o /app/test_data/ -t language_detection
+  sub_gen:
+    image: test:latest
+    volumes:
+      - ./test_data/video.mp4:/app/test_data/video.mp4
+    command: -i /app/test_data/video.mp4 -o /app/test_data/ -t subtitle_generation
+

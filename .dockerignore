@@ -1,0 +1,7 @@
+.github
+.gitignore
+.pre-commit-config.yaml
+Dockerfile
+README.md
+venv
+test_data
