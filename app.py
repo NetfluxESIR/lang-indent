@@ -68,10 +68,16 @@ def convert_to_mp3(input_file: Path) -> Path:
     try:
         video = VideoFileClip(str(input_file.absolute()))
     except Exception as e:
-        raise typer.BadParameter(f"Could not load {input_file} as a video file: {e}")
+        raise typer.BadParameter(
+            f"Could not load {input_file} as a video file: {e}"
+        )
     mp3_path = input_file.parent / f"{input_file.stem}.mp3"
     try:
-        video.audio.write_audiofile(str(mp3_path.absolute()), verbose=False, logger=None)
+        video.audio.write_audiofile(
+            str(mp3_path.absolute()),
+            verbose=False,
+            logger=None
+        )
     except Exception as e:
         raise typer.BadParameter(f"Could not convert {input_file} to mp3: {e}")
     return mp3_path
@@ -87,9 +93,18 @@ def language_detection(input_file: Path, model: whisper.Whisper) -> None:
     print(max(probs, key=probs.get))
 
 
-def subtitle_generation(input_file: Path, model: whisper.Whisper, output_dir: Path) -> None:
+def subtitle_generation(
+        input_file: Path,
+        model: whisper.Whisper,
+        output_dir: Path
+) -> None:
     result = model.transcribe(str(input_file.absolute()))
-    WriteVTT(output_dir=str(output_dir.absolute())).write_result(result, sys.stdout)
+    WriteVTT(
+        output_dir=str(output_dir.absolute())
+    ).write_result(
+        result,
+        sys.stdout
+    )
 
 
 if __name__ == "__main__":
