@@ -1,22 +1,33 @@
-# Template for python scripts
+# Netflux ESIR - Lang-Indent
 
-This is a template for python scripts. It is intended to be used as a starting point for new scripts for Netflux.
-With this template, you can create a new repository with all the necessary actions and workflows to get started (automated testing, linting and docker image creation).
+This repository contains the lang-indent of the Netflux ESIR project used to identify the language of a video 
+and to generate subtitles.
 
-If you want to learn more about template repositories, check out [this article](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Install
 
-## Requirements
+### Requirements
 
-- Python 3.6+
-- Poetry should be installed (see [Poetry documentation](https://python-poetry.org/docs/#installation) for more information)
+- [Python](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/)
+- [poetry](https://python-poetry.org/docs/#installation)
+- [ffmpeg](https://ffmpeg.org/download.html)
+- [Docker](https://docs.docker.com/get-docker/) (optional)
+- [Docker Compose](https://docs.docker.com/compose/install/) (optional)
 
-## Poetry
+### Run from source
 
-This template uses [Poetry](https://python-poetry.org/) to manage dependencies and packaging.
+```bash
+git clone https://github.com/NetfluxESIR/lang-indent.git
+cd lang-indent
+poetry install
+poetry run python app.py [command]
+```
 
-## Image creation
+### Run with Docker
 
-On a push to the `main` branch, a new docker image will be created and pushed to the GitHub's package registry. 
-The image will be tagged with the version corresponding to the latest workflow run and as `latest`.
+```bash
+docker run ghcr.io/netfluxesir/lang-indent:latest [command]
+```
 
-For more information, check out the [GitHub's package registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
+> Note: you can also use the [docker-compose.yml](./docker-compose.yaml) file to run the lang-indent locally.
+
