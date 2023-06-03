@@ -31,3 +31,22 @@ docker run ghcr.io/netfluxesir/lang-indent:latest [command]
 
 > Note: you can also use the [docker-compose.yml](./docker-compose.yaml) file to run the lang-indent locally.
 
+
+## Usage
+
+```bash
+Usage: app.py [OPTIONS]
+
+Options:
+  -i, --input FILE                Input file path  [required]
+  -t, --task-type TEXT            Task type to run  [default:
+                                  TaskType.language_detection] [language_detection | subtitle_generation]
+  -o, --output-dir DIRECTORY      Output directory path  [default: /home/sugat
+                                  e/Documents/cours/cloud/final/lang-indent]
+  --install-completion [bash|zsh|fish|powershell|pwsh]
+                                  Install completion for the specified shell.
+  --show-completion [bash|zsh|fish|powershell|pwsh]
+                                  Show completion for the specified shell, to
+                                  copy it or customize the installation.
+  --help                          Show this message and exit.
+```
